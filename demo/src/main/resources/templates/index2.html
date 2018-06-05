@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="ISO-8859-1" />
+		<title>curso spring naty</title>
+	</head>
+
+	<body>
+	
+		<h1>hola caracola</h1>
+		<h2>desde archivo index2.html</h2>
+	
+		<!-- para pasar el valor de una variable desde el controlador -->
+		<h2>desde archivo index2.html <span th:text="${nombreDeMiVariable}"></span></h2>
+			
+		<!-- para pasar un objeto desde el controlador -->
+		<h2>el nombre de persona es: <span th:text="${person.nombre}"></span></h2>
+		<h2>la edad de persona es:  <span th:text="${person.edad}"></span></h2>		
+			 
+		<!-- hago una tabla para pasar un listado de objetos desde el controlador -->
+		<table>
+			<thead>
+				<tr>
+					<th>NOMBRE</th>
+					<th>EDAD</th>
+				</tr>
+			</thead>
+			<tbody th:each="persona : ${listado}">
+				<tr>
+					<th th:text="${persona.nombre}">NOMBRE</th>
+					<th th:text="${persona.edad}">EDAD</th>
+				</tr>
+			</tbody>
+		</table>
+		
+	</body>
+
+</html>
