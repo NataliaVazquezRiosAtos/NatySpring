@@ -11,7 +11,9 @@
 	
 	<form action="#" th:action="@{/formular/crearpersona}" th:object="${person}" method="post">	
 		<p>nombre : <input type="text" th:field="*{nombre}"/></p>
+		<p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="color:red;">Error de nombre: </p>
 		<p>edad   : <input type="number" th:field="*{edad}" /></p>
+		<p th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}" style="color:red;">Error de edad: </p>
 		<p><input type="submit" value="enviar"/></p>
 	</form>
 	
