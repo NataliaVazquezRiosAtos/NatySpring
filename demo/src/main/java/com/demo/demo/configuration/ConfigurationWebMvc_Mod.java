@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.demo.demo.components.Peticiones_HTTP_Time;
 
 @Configuration
-public class ConfigurationWebMvc extends WebMvcConfigurerAdapter {
+public class ConfigurationWebMvc_Mod extends WebMvcConfigurerAdapter {
 	
 	// le decimos a spring que se encuentra en su memoria
 	@Autowired
