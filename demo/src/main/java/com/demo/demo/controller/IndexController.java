@@ -13,12 +13,26 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.demo.demo.components.Ejemplo_Componente_1;
 import com.demo.demo.model.Persona;
+import com.demo.demo.service.PrimerServicio;
 
 
 //@Controller :  anotación para que sea un bean de spring
 @Controller
 @RequestMapping("/casca")
 public class IndexController {
+	
+	/*****************************************************************************************************/
+	/************************************	CREAR UN SERVICIO	******************************************/
+	/*****************************************************************************************************/
+	@Autowired	
+	@Qualifier("ejemploServicio")
+	
+	// se declara la interface , no la clase
+	private PrimerServicio miServicio;
+	
+	/*****************************************************************************************************/
+	/************************************	CREAR UN COMPONENTE	******************************************/
+	/*****************************************************************************************************/
 	
 	// vamos a inyectar un componente creado por nosotros para ello: @Autowired
 	@Autowired
@@ -28,6 +42,10 @@ public class IndexController {
 	
 	// ya listo para usar
 	private Ejemplo_Componente_1 miComponente;
+	
+	/*****************************************************************************************************/
+	/*****************************************************************************************************/
+	/*****************************************************************************************************/
 	
 	// index2 = nombre de la vista	
 	public static final String VISTA = "index2";
@@ -39,7 +57,7 @@ public class IndexController {
 		// model.addAttribute("person" , new Persona ("Julio" , 80));	
 		// model.addAttribute("nombreDeMiVariable" ,"perro");			
 		miComponente.ver();
-		model.addAttribute("listado" , dameListadoPersona());	
+		model.addAttribute("listado" , miServicio.getListaPersonas());	
 		
 		return VISTA;
 		
@@ -53,21 +71,13 @@ public class IndexController {
 		//mov.addObject("nombreDeMiVariable" ,"gato");		
 		//mov.addObject("person" , new Persona ("Carlos" , 50));
 		
-		mov.addObject("listado" , dameListadoPersona());
+		mov.addObject("listado" , miServicio.getListaPersonas() );
 		
 		// return new ModelAndView(VISTA);
 		return mov;
 		
 	}
 	
-	public List<Persona> dameListadoPersona(){
 	
-	 	List<Persona> listaPersonas = new ArrayList<>();
-	 	listaPersonas.add(new Persona("juan" , 23));
-	 	listaPersonas.add(new Persona("ricardo" , 36));
-	 	listaPersonas.add(new Persona("manuel" , 42));
-	 
-	 	return listaPersonas;
-	}
 	
 }
