@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.demo.demo.entity.Curso;
 
 /*
+ * los repositorios sirven para hacer las querys
  * esta interface nos permite también, poder crear metodos personalizados que sigan una logica que JpaRepository
  * acepte , el cual no nos haga falta ningun tipo de implementacion ( es una interfaz )
  * 
