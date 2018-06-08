@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="ISO-8859-1"/>
+		<title>cursos</title>
+	</head>
+	
+	<body>
+	<h1>listado de cursos</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>nombre</th>
+					<th>descripcion</th>
+					<th>precio</th>
+					<th>horas</th>			
+				</tr>			
+			</thead>
+			<tbody>
+				<tr th:each="cursos: ${listado}">
+					<th><span th:text="${cursos.id}"></span></th>
+					<th><span th:text="${cursos.nombre}"></span></th>
+					<th><span th:text="${cursos.descripcion}"></span></th>
+					<th><span th:text="${cursos.precio}"></span></th>
+					<th><span th:text="${cursos.horas}"></span></th>			
+				</tr>			
+			</tbody>		
+		</table>
+		
+		<form action="#" th:action="@{/cursos/anadircurso}" th:object="${curso}" method="post">
+			
+			<p> Nombre: <input type="text" th:field="*{nombre}"></input></p>
+			<p> Descripcion: <input type="text" th:field="*{descripcion}"></input</p>
+			<p> Precio: <input type="number" th:field="*{precio}"></input></p>
+			<p> Horas: <input type="number" th:field="*{horas}"></input></p>
+			<p> <input type="submit" value="enviar"></input></p>
+		</form>
+				
+	</body>
+	
+</html>
+
+
+
+
+

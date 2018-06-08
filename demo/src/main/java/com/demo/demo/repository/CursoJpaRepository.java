@@ -21,7 +21,7 @@ public interface CursoJpaRepository extends JpaRepository<Curso, Serializable> {
 	// solo con las dos lineas anteriores esto ya tendriamos un repositorio jpa
 	// JpaRepository<Curso, Serializable>    Curso --> entidad a la que va a hacer referencia
 	
-	public abstract Curso metodo();
+	// public abstract Curso metodo();
 	
 	// JpaRepository nos permite realizar las siguientes querys : 
 	// findByNombre : hace una query por el atributo nombre del bean Curso sin implementar nada
