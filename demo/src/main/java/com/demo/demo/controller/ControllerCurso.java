@@ -44,6 +44,24 @@ public class ControllerCurso {
 		return "redirect:/cursos/listadocursos";		
 	}
 	
+	@PostMapping("/borrarcurso")
+	public String borrarCurso(@ModelAttribute("curso") Curso curso) {
+		
+		//listarCursos();
+		
+		MI_LOG.info("Se ha llamado al metodo: borrarCurso() -- Parametros:  " + curso.toString() );
+	
+		miServicioCurso.borrarCurso(curso.getId());
+		return "redirect:/cursos/listadocursos";		
+	}
+	
+	@PostMapping("/actualizarcurso")
+	public String modificarCurso(@ModelAttribute("curso") Curso curso) {	
+		MI_LOG.info("Se ha llamado al metodo: modificarCurso() -- Parametros:  " + curso.toString() );
+		miServicioCurso.modificar(curso);
+		return "redirect:/cursos/listadocursos";		
+	}
+	
 	
 	
 	

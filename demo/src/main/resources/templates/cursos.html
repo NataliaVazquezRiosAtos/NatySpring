@@ -2,44 +2,144 @@
 <html>
 
 	<head>
-		<meta charset="ISO-8859-1"/>
+		<meta charset="ISO-8859-1" />
 		<title>cursos</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/myStyle.css}"/>
 	</head>
-	
+
 	<body>
-	<h1>listado de cursos</h1>
-		<table>
-			<thead>
-				<tr>
-					<th>id</th>
-					<th>nombre</th>
-					<th>descripcion</th>
-					<th>precio</th>
-					<th>horas</th>			
-				</tr>			
-			</thead>
-			<tbody>
-				<tr th:each="cursos: ${listado}">
-					<th><span th:text="${cursos.id}"></span></th>
-					<th><span th:text="${cursos.nombre}"></span></th>
-					<th><span th:text="${cursos.descripcion}"></span></th>
-					<th><span th:text="${cursos.precio}"></span></th>
-					<th><span th:text="${cursos.horas}"></span></th>			
-				</tr>			
-			</tbody>		
-		</table>
-		
-		<form action="#" th:action="@{/cursos/anadircurso}" th:object="${curso}" method="post">
-			
-			<p> Nombre: <input type="text" th:field="*{nombre}"></input></p>
-			<p> Descripcion: <input type="text" th:field="*{descripcion}"></input</p>
-			<p> Precio: <input type="number" th:field="*{precio}"></input></p>
-			<p> Horas: <input type="number" th:field="*{horas}"></input></p>
-			<p> <input type="submit" value="enviar"></input></p>
-		</form>
-				
-	</body>
 	
+		<div class=" container w-100 text-center">
+
+			<h1>Listado de Cursos</h1>
+
+			<table class=" table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>NOMBRE</th>
+						<th>DESCRIPCI&Oacute;N</th>
+						<th>PRECIO</th>
+						<th>HORAS</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cursos: ${listado}">
+						<td><span th:text="${cursos.id}"></span></td>
+						<td><span th:text="${cursos.nombre}"></span></td>
+						<td><span th:text="${cursos.descripcion}"></span></td>
+						<td><span th:text="${cursos.precio}"></span></td>
+						<td><span th:text="${cursos.horas}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+	
+		</div>
+		
+		<div class="w-100 ">
+		
+			<div class="row">
+			
+				<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
+				
+				<h1 class="text-center tituloAccion">A&ntilde;adir</h1>
+				
+					<form action="#" th:action="@{/cursos/anadircurso}"	th:object="${curso}" method="post">
+					
+						<div class="form-group">
+							<label>Nombre</label> 
+							<input type="text" th:field="*{nombre}"class="form-control"></input>
+						</div>
+	
+						<div class="form-group">
+							<label>Descripci&oacute;n</label> 
+							<input type="text" th:field="*{descripcion}" class="form-control"></input>
+						</div>
+	
+						<div class="form-group">
+							<label>Precio</label> 
+							<input type="number" th:field="*{precio}" class="form-control"></input>
+						</div>
+	
+						<div class="form-group">
+							<label>Horas</label> 
+							<input type="number" th:field="*{horas}" class="form-control"></input>
+						</div>
+	
+						<input type="submit" value="Nuevo Curso" class="btn btn-success"></input>
+						
+					</form>
+					
+				</div>
+				
+				<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
+				
+					<h1 class="text-center tituloAccion ">Borrar</h1>
+					
+					<form action="#" th:action="@{/cursos/borrarcurso}" th:object="${curso}" method="post">
+						<div class="form-group">
+							<label>Selecciona un Curso</label> 
+							<select th:field="*{id}" class="form-control">
+								<!-- <option value=""> -- </option> -->
+								<option th:each="cursos:  ${listado}" th:value="${cursos.id}" th:utext="${cursos.nombre}" />
+							</select>
+						</div>
+						<input type="submit" value="Eliminar Curso" class="btn btn-success"></input>
+					</form>
+					
+				</div>
+				
+				<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+				
+				<h1  class="text-center tituloAccion">Modificar</h1>
+				
+					<form action="#" th:action="@{/cursos/actualizarcurso}" th:object="${curso}" method="post">
+						
+						<div class="form-group">					
+							<label>ID</label> 
+							<select th:field="*{id}" class="form-control">
+								<!-- <option value=""> -- </option> -->
+								<option th:each="cursos:  ${listado}" th:value="${cursos.id}" th:utext="${cursos.id}" />
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label>Nombre</label> 
+							<input type="text" th:field="*{nombre}" class="form-control" ></input>
+						</div>
+	
+						<div class="form-group">
+							<label>Descripci&oacute;n</label> 
+							<input type="text" th:field="*{descripcion}" class="form-control" ></input>
+						</div>
+	
+						<div class="form-group">
+							<label>Precio</label> 
+							<input type="number" th:field="*{precio}" class="form-control" ></input>
+						</div>
+	
+						<div class="form-group">
+							<label>Horas</label>
+							<input type="number" th:field="*{horas}" class="form-control" ></input>
+						</div>
+	
+						<input type="submit" value="Actualizar Curso" class="btn btn-success" ></input>
+	
+					</form>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"	crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"	crossorigin="anonymous"></script>
+
+	</body>
+
 </html>
 
 
