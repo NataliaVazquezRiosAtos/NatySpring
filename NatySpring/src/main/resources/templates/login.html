@@ -18,18 +18,21 @@
 
     <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" action="#" th:action="@{/checkLogin}" th:object="${credencialesFormulario}" method="post">
         <h2 class="form-signin-heading">Sign in</h2>
         <label for="inputEmail" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Username"/>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Nombre usuario" th:field="*{nombreUsuario}"/>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password"/>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" th:field="*{passUsuario}"/>
+        <!-- th:if="${error != null}"  ->  condicion if mediante spring thymeleaf     -->
+        <div th:if="${error != null}" class="alert alert-danger" role="alert">Usuario o contrase&ntilde;a incorrectas.</div>
+        <!-- th:if="${logout != null}"  ->  condicion if mediante spring thymeleaf     -->
+        <div th:if="${logout != null}" class="alert alert-info" role="alert">Logout correcto.</div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">
         	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
         </button>
       </form>
 
     </div> <!-- /container -->
-
 </body>
 </html>
