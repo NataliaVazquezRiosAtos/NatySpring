@@ -2,7 +2,10 @@ package com.natySpring.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,11 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.natySpring.constans.ConstantesVistas;
 import com.natySpring.model.ContactoModelo;
+import com.natySpring.services.ServiciosContacto;
 
 @Controller
 @RequestMapping("/contactos")
 public class ContactoController {
 	
+	// añadimos el servicio
+	@Autowired
+	@Qualifier("servicioComtactoImpl")
+	
+	// implementacion de la iunterfaz
+	private ServiciosContacto servicioContacto;
+	
+	// creamos un log
 	public static final Log MI_LOG = LogFactory.getLog(ContactoController.class);
 	
 	@GetMapping("/cancelar")
@@ -35,7 +47,12 @@ public class ContactoController {
 	@PostMapping("/anadircontacto")
 	public String anadircontacto(@ModelAttribute(name="contactoFormulario") ContactoModelo contactoModelo , Model model) {
 		MI_LOG.info("-- ENTRA EN METODO: anadircontact()  --   PARAMETROS: " + contactoModelo.toString());
-		model.addAttribute("resultado" , 1 );
+		if(null != servicioContacto.anadirContacto(contactoModelo)) {
+			model.addAttribute("resultado" , 1 );
+		}else {
+			model.addAttribute("resultado" , 1 );	
+		}
+		
 		return ConstantesVistas.VISTA_CONTACTOS;
 		
 	}

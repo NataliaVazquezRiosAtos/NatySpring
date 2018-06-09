@@ -74,13 +74,18 @@
 		
 		<!-- th:if="${resultado == 1}"  ->  condicion if mediante spring thymeleaf     -->
         <div th:if="${resultado == 1}" class="alert alert-success" role="alert">Contacto a&ntilde;adido con &eacute;xito.</div>
+        
+        <!-- th:if="${resultado == 0}"  ->  condicion if mediante spring thymeleaf     -->
+        <div th:if="${resultado == 0}" class="alert alert-danger" role="alert">Error al a&ntilde;adir el contacto. Vuelva a intentarlo.</div>        
 		
 		<a href="#" th:href="@{/contactos/formulariocontacto}">	
 			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Add contact</button>
 		</a>
+		
 		<a href="#" th:href="@{/login?logout}">		
 			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</button>
 		</a>
+		
 	</div>
 
 
