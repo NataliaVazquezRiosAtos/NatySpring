@@ -1,0 +1,75 @@
+@charset "ISO-8859-1";
+
+html, body {
+	width: 100%;
+	background: rgba(139, 183, 224, 1);
+	background: -moz-linear-gradient(45deg, rgba(139, 183, 224, 1) 15%,
+		rgba(111, 161, 207, 1) 36%, rgba(47, 111, 168, 1) 83%,
+		rgba(47, 111, 168, 1) 85%);
+	background: -webkit-gradient(left bottom, right top, color-stop(15%, rgba(139, 183,
+		224, 1)), color-stop(36%, rgba(111, 161, 207, 1)),
+		color-stop(83%, rgba(47, 111, 168, 1)),
+		color-stop(85%, rgba(47, 111, 168, 1)));
+	background: -webkit-linear-gradient(45deg, rgba(139, 183, 224, 1) 15%,
+		rgba(111, 161, 207, 1) 36%, rgba(47, 111, 168, 1) 83%,
+		rgba(47, 111, 168, 1) 85%);
+	background: -o-linear-gradient(45deg, rgba(139, 183, 224, 1) 15%,
+		rgba(111, 161, 207, 1) 36%, rgba(47, 111, 168, 1) 83%,
+		rgba(47, 111, 168, 1) 85%);
+	background: -ms-linear-gradient(45deg, rgba(139, 183, 224, 1) 15%,
+		rgba(111, 161, 207, 1) 36%, rgba(47, 111, 168, 1) 83%,
+		rgba(47, 111, 168, 1) 85%);
+	background: linear-gradient(45deg, rgba(139, 183, 224, 1) 15%,
+		rgba(111, 161, 207, 1) 36%, rgba(47, 111, 168, 1) 83%,
+		rgba(47, 111, 168, 1) 85%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8bb7e0',
+		endColorstr='#2f6fa8', GradientType=1);
+}
+
+.container {
+	/*background-color: rgba(255, 255, 255 ,0.1);*/
+	
+}
+
+/* estilos para los titulos */
+
+h1 {
+	margin: 1em 0 1em 0;
+	color: #fff;
+}
+
+.tituloAccion {
+	color: #016da1;
+}
+
+
+/* estilos para las colunnas de las acciones */
+
+.row {
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+}
+
+/* estilos para las tablas */
+
+.table td, .table th {
+	border: none;
+	color: #fff;
+}
+
+.table thead tr th {
+	border-bottom: 1px solid #fff;
+}
+/* estilos para los input y labels de los formularios */
+
+.form-group label, .form-group .form-control {
+	color: #016da1;
+}
+
+/* estilos para las botones */
+
+.btn {
+	margin-bottom: 2em;
+}
+
