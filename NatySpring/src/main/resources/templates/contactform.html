@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Backend Ninja - Add/modify Contact</title>
+	<title>Naty Spring</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet"
@@ -19,24 +19,32 @@
 		<div class="container">
 			<h1>Contact Form</h1>
 			<br/>
-			<form action="#">
-				First Name: <input type="text" class="form-control"></input>
+			
+		
+			<form action="#" th:action="@{/contactos/anadircontacto}" th:object="${contactoFormulario}" method="post">
+				Nombre: <input type="text" class="form-control" th:field="*{nombre}"></input>
+				<br/>			
+				Apellido: <input type="text" class="form-control" th:field="*{apellido}"></input>
 				<br/>
-				Last Name: <input type="text" class="form-control"></input>
+				Tel&eacute;efono: <input type="text" class="form-control" th:field="*{telefono}"></input>
 				<br/>
-				Telephone: <input type="text" class="form-control"></input>
-				<br/>
-				City: <input type="text" class="form-control"></input>
+				Ciudad: <input type="text" class="form-control" th:field="*{ciudad}"></input>
 				<br/>
 				<br/>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Accept
-				</button>
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar
+				</button>				
+			</form>		
+		
+			
+			<a href="#" th:href="@{/contactos/cancelar}">	
 				<button class="btn btn-lg btn-primary btn-block" type="submit">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Accept
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
 				</button>
-			</form>
+			</a>
+				
 		</div>
+		
 	</div>
 
 </body>

@@ -38,7 +38,7 @@ public class Peticiones_HTTP_Time extends HandlerInterceptorAdapter{
 		
 		long startTiempo = (long) request.getAttribute("startTime"); 
 	
-		MI_LOG.info("-- Respuesta URL: "+ request.getRequestURL().toString() + " -- TIEMPO TOTAL: " +( System.currentTimeMillis() - startTiempo)+"´ms");
+		MI_LOG.info(" -- Respuesta URL: "+ request.getRequestURL().toString() + " -- TIEMPO TOTAL: " +( System.currentTimeMillis() - startTiempo)+"´ms");
 		
 	}		
 	

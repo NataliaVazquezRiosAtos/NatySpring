@@ -38,7 +38,7 @@ public class LoginController {
 		model.addAttribute("logout" , logout);	
 		model.addAttribute("credencialesFormulario" , new CredencialesUsuario());	
 		
-		MI_LOG.info("-- RETORNANDO A LA VISTA DE LOGIN");
+		MI_LOG.info(" -- RETORNANDO A LA VISTA DE LOGIN");
 		
 		return ConstantesVistas.VISTA_LOGIN;
 	}
@@ -51,7 +51,7 @@ public class LoginController {
 		
 		if(credencialesUsuForm.getNombreUsuario().equals("user") && credencialesUsuForm.getPassUsuario().equals("user")) {
 			
-			MI_LOG.info("-- RETORNANDO A LA VISTA DE CONTACS");
+			MI_LOG.info(" -- RETORNANDO A LA VISTA DE CONTACS");
 			// si el usuario y pass son correctas ( = user ), nos lleva a la vista de contactos
 			return ConstantesVistas.VISTA_CONTACTOS;
 			
@@ -60,7 +60,7 @@ public class LoginController {
 			
 			// si el usuario o la pass son incorrectas ( != user ), nos redirecciona a la vista del formulario de login
 			// y nos pasa como parametro el error
-			MI_LOG.info("-- RETORNANDO A LA VISTA DE LOGIN POR ERROR DE USUARIO O CONTRASEÑA");
+			MI_LOG.info(" -- RETORNANDO A LA VISTA DE LOGIN POR ERROR DE USUARIO O CONTRASEÑA");
 			return "redirect:/login?error";
 			
 		}		
