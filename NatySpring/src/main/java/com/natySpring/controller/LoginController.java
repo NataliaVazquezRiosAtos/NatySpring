@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.natySpring.constans.ConstantesVistas;
 import com.natySpring.model.CredencialesUsuario;
 
 @Controller
@@ -39,7 +40,7 @@ public class LoginController {
 		
 		MI_LOG.info("-- RETORNANDO A LA VISTA DE LOGIN");
 		
-		return "login";
+		return ConstantesVistas.VISTA_LOGIN;
 	}
 	
 	// credencialesFormulario es el atributo que recibimos del formulario
@@ -52,7 +53,7 @@ public class LoginController {
 			
 			MI_LOG.info("-- RETORNANDO A LA VISTA DE CONTACS");
 			// si el usuario y pass son correctas ( = user ), nos lleva a la vista de contactos
-			return "contacts";
+			return ConstantesVistas.VISTA_CONTACTOS;
 			
 			
 		}else {

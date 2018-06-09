@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="contactos")
-public class Contactos {
+public class Contacto {
 	
 	// atributos
 	// @GeneratedValue --> para que nos autogenere el id
@@ -31,9 +31,9 @@ public class Contactos {
 	
 	// constructores
 	
-	public Contactos() {}
+	public Contacto() {}
 	
-	public Contactos(int id, String nombre, String apellido, String telefono, String ciudad) {
+	public Contacto(int id, String nombre, String apellido, String telefono, String ciudad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
