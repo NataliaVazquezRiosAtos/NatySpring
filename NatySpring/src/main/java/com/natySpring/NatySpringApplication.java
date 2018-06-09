@@ -10,3 +10,5 @@ public class NatySpringApplication {
 		SpringApplication.run(NatySpringApplication.class, args);
 	}
 }
+
+
