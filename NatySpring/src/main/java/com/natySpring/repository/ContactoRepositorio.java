@@ -10,4 +10,5 @@ import com.natySpring.entity.Contacto;
 @Repository("repositorioContactos")
 public interface ContactoRepositorio extends JpaRepository<Contacto, Serializable> {
 
+	public abstract Contacto findById(int id);
 }

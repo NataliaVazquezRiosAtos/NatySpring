@@ -1,6 +1,7 @@
 package com.natySpring.services;
 import java.util.List;
 
+import com.natySpring.entity.Contacto;
 import com.natySpring.model.ContactoModelo;
 
 /*
@@ -11,6 +12,8 @@ import com.natySpring.model.ContactoModelo;
 public interface ServiciosContacto {
 	
 	public abstract ContactoModelo anadirContacto(ContactoModelo contactoModelo);
-	public abstract List listarContactos();
+	public abstract List<ContactoModelo> listarContactos();
+	public abstract Contacto findById(int id);
+	public abstract void borrarContacto(int id);
 
 }

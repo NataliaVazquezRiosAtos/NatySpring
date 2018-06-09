@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.natySpring.constans.ConstantesVistas;
@@ -25,7 +26,7 @@ public class ContactoController {
 	@Autowired
 	@Qualifier("servicioComtactoImpl")
 	
-	// implementacion de la iunterfaz
+	// declaracion de la interfaz
 	private ServiciosContacto servicioContacto;
 	
 	// creamos un log
@@ -67,6 +68,14 @@ public class ContactoController {
 		mav.addObject("miscontactos" , servicioContacto.listarContactos());
 		
 		return mav;
+	}
+	
+	@GetMapping("/borrarcontacto")
+	public ModelAndView borrarContacto(@RequestParam(name="id", required=true) int id) {
+		MI_LOG.info("-- ENTRA EN METODO:  borrarContactot()  --   PARAMETROS: id=" + id);
+		servicioContacto.borrarContacto(id);
+		MI_LOG.info("-- va entrar en ver contactos" + id);
+		return verContactos();
 	}
 	
 }
