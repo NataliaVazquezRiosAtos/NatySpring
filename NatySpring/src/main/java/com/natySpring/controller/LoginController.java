@@ -53,7 +53,7 @@ public class LoginController {
 			
 			MI_LOG.info(" -- RETORNANDO A LA VISTA DE CONTACS");
 			// si el usuario y pass son correctas ( = user ), nos lleva a la vista de contactos
-			return ConstantesVistas.VISTA_CONTACTOS;
+			return "redirect:/contactos/vercontactos";
 			
 			
 		}else {

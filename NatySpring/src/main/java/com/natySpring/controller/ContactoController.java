@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.natySpring.constans.ConstantesVistas;
 import com.natySpring.model.ContactoModelo;
@@ -33,7 +34,7 @@ public class ContactoController {
 	@GetMapping("/cancelar")
 	public String cancelar() {
 		MI_LOG.info(" -- ENTRA EN EL METODO: cancelar()");
-		return ConstantesVistas.VISTA_CONTACTOS;
+		return "redirect:/contactos/vercontactos";
 	}
 	
 	@GetMapping("/formulariocontacto")
@@ -46,15 +47,26 @@ public class ContactoController {
 	
 	@PostMapping("/anadircontacto")
 	public String anadircontacto(@ModelAttribute(name="contactoFormulario") ContactoModelo contactoModelo , Model model) {
+		
 		MI_LOG.info("-- ENTRA EN METODO: anadircontact()  --   PARAMETROS: " + contactoModelo.toString());
+		
 		if(null != servicioContacto.anadirContacto(contactoModelo)) {
 			model.addAttribute("resultado" , 1 );
 		}else {
 			model.addAttribute("resultado" , 1 );	
 		}
 		
-		return ConstantesVistas.VISTA_CONTACTOS;
+		return "redirect:/contactos/vercontactos";
 		
+	}
+	
+	@GetMapping("/vercontactos")
+	public ModelAndView verContactos() {
+		
+		ModelAndView mav = new ModelAndView(ConstantesVistas.VISTA_CONTACTOS);
+		mav.addObject("miscontactos" , servicioContacto.listarContactos());
+		
+		return mav;
 	}
 	
 }

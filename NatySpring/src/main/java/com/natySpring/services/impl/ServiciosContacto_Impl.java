@@ -3,6 +3,9 @@ package com.natySpring.services.impl;
 import com.natySpring.model.ContactoModelo;
 import com.natySpring.repository.ContactoRepositorio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -30,6 +33,21 @@ public class ServiciosContacto_Impl implements ServiciosContacto {
 	public ContactoModelo anadirContacto(ContactoModelo contactoModelo) {
 		Contacto contacto = contactoRepo.save(contactoConverter.converterContactoModelo2Contacto(contactoModelo));
 		return contactoConverter.converterContacto2ContactoModelo(contacto);
-	}	
+	}
+
+	@Override
+	public List<ContactoModelo> listarContactos() {
+		
+		List<Contacto> listaContactos = contactoRepo.findAll();		
+		List<ContactoModelo> listaContactosModelo = new ArrayList<ContactoModelo>();
+		
+		for (Contacto resultadoListaContactos : listaContactos) {
+			
+			listaContactosModelo.add(contactoConverter.converterContacto2ContactoModelo(resultadoListaContactos));
+		}
+		
+		return listaContactosModelo;		
+
+	}		
 
 }
