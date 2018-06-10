@@ -59,8 +59,19 @@ public class ContactoModelo {
 	// toString()
 	@Override
 	public String toString() {
-		return "Contactos [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono
-				+ ", ciudad=" + ciudad + "]";
+		
+		String cadena = "****************************************************** \n";
+		
+		return 	cadena +
+				"Contacto Modelo " + nombre + " : \n " +
+				cadena +
+				"Codigo : " + id + " \n " + 
+				"Nombre : " + nombre + " \n " +
+				"Apellido : " + apellido + " \n " +
+				"Telefono : " + telefono + " \n " +
+				"Ciudad : " + ciudad + " \n " +
+				cadena
+				;
 	}	
 
 }

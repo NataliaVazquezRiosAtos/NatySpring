@@ -34,8 +34,17 @@ public class CredencialesUsuario {
 
 	// toString()
 	@Override
-	public String toString() {
-		return "CredencialesUsuario [nombreUsuario=" + nombreUsuario + ", passUsuario=" + passUsuario + "]";
+	public String toString() {	
+		
+		String cadena = "****************************************************** \n";
+		
+		return 	cadena +
+				"Credenciales usuario : \\n " + nombreUsuario + " : \n " +
+				cadena +
+				"Nombre usuario : " + nombreUsuario + " \n " + 
+				"Contrasena usuario : " + passUsuario + " \n " +				
+				cadena
+				;
 	}	
 
 }
