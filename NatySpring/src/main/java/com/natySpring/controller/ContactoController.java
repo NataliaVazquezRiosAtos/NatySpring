@@ -4,8 +4,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.natySpring.constans.ConstantesVistas;
-import com.natySpring.entity.Contacto;
+
 import com.natySpring.model.ContactoModelo;
 import com.natySpring.services.ServiciosContacto;
 
@@ -57,6 +59,7 @@ public class ContactoController {
 		return ConstantesVistas.VISTA_FORMULARIO_CONTACTO;
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")	
 	@PostMapping("/anadircontacto")
 	public String anadircontacto(@ModelAttribute(name="contactoFormulario") ContactoModelo contactoModelo , Model model) {
 		

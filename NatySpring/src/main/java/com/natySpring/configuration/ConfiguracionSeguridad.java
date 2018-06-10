@@ -2,24 +2,45 @@ package com.natySpring.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 
 /*
  * para la configuracion que no se puede añadir al application.yml , tenemos que crear clases
  * que nos configuren nuestra aplicacion en el paquete configuration
  * 
+ * @EnableGlobalMethodSecurity(prePostEnabled=true) : anotacion que nos permite escribir anotaciones
+ * para controlar el acceso a los metodos, segun la seguridad
  * */
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
+	
+    @Bean
+    @Override
+    public UserDetailsService userDetailsService() {
+        UserDetails user =
+             User.withDefaultPasswordEncoder()
+                .username("user")
+                .password("password")
+                .roles("USER")
+                .build();
+
+        return new InMemoryUserDetailsManager(user);
+    }  
 
 	// cargamos el servicio servicioUsuarioImpl
 	@Autowired
