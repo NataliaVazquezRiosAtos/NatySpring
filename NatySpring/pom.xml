@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -15,7 +16,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -39,71 +40,66 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>		
-		
+		</dependency>
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
-		<!-- dependencias para querydsl -->		
+		<!-- dependencias para querydsl -->
 		<!-- https://github.com/querydsl/querydsl/tree/master/querydsl-jpa -->
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-jpa</artifactId>
 		</dependency>
 
-		<!--
+		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId> 
+			</dependency> -->
+
+		<!-- dependencias para spring security -->
+		<!-- https://spring.io/projects -->
+		<!-- https://spring.io/projects/spring-security -->
+		<!-- https://spring.io/guides -->
+		<!-- https://spring.io/guides/gs/securing-web/ -->
+		<!-- desde cmd en carpeta del proyecto : mvn clean install -->
+
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		 -->
-		 
-		 <!-- dependencias para spring security -->	
-		 <!-- https://spring.io/projects -->
-		 <!-- https://spring.io/projects/spring-security -->
-		 <!-- https://spring.io/guides -->	
-		 <!-- https://spring.io/guides/gs/securing-web/ -->	
-		 <!-- desde cmd en carpeta del proyecto :  mvn clean install -->	
-		 
-		 <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-         </dependency>		
-		
+
+		<!-- dependencia para springloaded -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>springloaded</artifactId>
+			<version>1.2.8.RELEASE</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
-	
-		<plugins>		
-			
+
+		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
-					<!-- plugin para querydsl -->
+
+			<!-- plugin para querydsl -->
 			<!-- https://github.com/querydsl/querydsl/tree/master/querydsl-jpa -->
-			<!-- 
-			
-			para que no casque el execute:
-				1.	 en el archivo de sts.ini hay que poner en la primera linea, la ruta donde tenemos javaw.exe:
-						-vm
-						C:\Program Files\Java\jdk-10.0.1\bin\javaw.exe
-				
-				2.	en eclipse: *window *preferences *Java *Installed JREs, y seleccionar nuestra jdk
-					( si no lo tuvieramos primero habria que añadirla )
-					
-				3.	desde cmd, en la carpeta de nuestro proyecto, mvn clean install		
-				
-				4.  refrescar el proyecto	
-			
-			-->
+			<!-- para que no casque el execute: 1. en el archivo de sts.ini hay que 
+				poner en la primera linea, la ruta donde tenemos javaw.exe: -vm C:\Program 
+				Files\Java\jdk-10.0.1\bin\javaw.exe 2. en eclipse: *window *preferences *Java 
+				*Installed JREs, y seleccionar nuestra jdk ( si no lo tuvieramos primero 
+				habria que añadirla ) 3. desde cmd, en la carpeta de nuestro proyecto, mvn 
+				clean install 4. refrescar el proyecto -->
 			<plugin>
 				<groupId>com.mysema.maven</groupId>
 				<artifactId>apt-maven-plugin</artifactId>
@@ -127,9 +123,9 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			
+
 		</plugins>
-		
+
 	</build>
 
 </project>

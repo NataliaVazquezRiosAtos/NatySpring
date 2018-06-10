@@ -15,3 +15,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+  
+   # para que no guarde la cache      
+  thymeleaf:
+    cache: false
+  
