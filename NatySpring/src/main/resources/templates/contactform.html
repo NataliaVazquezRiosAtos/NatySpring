@@ -17,18 +17,18 @@
 
 	<div class="jumbotron">
 		<div class="container">
-			<h1>Contact Form</h1>
-			<br/>
-			
+			<h1>Formulario de Contacto</h1>
+			<br/>		
 		
 			<form action="#" th:action="@{/contactos/anadircontacto}" th:object="${contactoFormulario}" method="post">
-				Nombre: <input type="text" class="form-control" th:field="*{nombre}"></input>
+				<input type="hidden"  th:field="*{id}"></input>
+				Nombre: <input type="text" class="form-control" th:field="*{nombre}" th:value="${nombre}"></input>
 				<br/>			
-				Apellido: <input type="text" class="form-control" th:field="*{apellido}"></input>
+				Apellido: <input type="text" class="form-control" th:field="*{apellido}" th:value="${apellido}"></input>
 				<br/>
-				Tel&eacute;efono: <input type="text" class="form-control" th:field="*{telefono}"></input>
+				Tel&eacute;efono: <input type="text" class="form-control" th:field="*{telefono}" th:value="${telefono}"></input>
 				<br/>
-				Ciudad: <input type="text" class="form-control" th:field="*{ciudad}"></input>
+				Ciudad: <input type="text" class="form-control" th:field="*{ciudad}" th:value="${ciudad}"></input>
 				<br/>
 				<br/>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">

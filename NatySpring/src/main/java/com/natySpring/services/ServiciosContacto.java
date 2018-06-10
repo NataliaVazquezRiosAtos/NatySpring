@@ -15,5 +15,6 @@ public interface ServiciosContacto {
 	public abstract List<ContactoModelo> listarContactos();
 	public abstract Contacto findById(int id);
 	public abstract void borrarContacto(int id);
+	public abstract ContactoModelo findByIdModelo(int id);
 
 }

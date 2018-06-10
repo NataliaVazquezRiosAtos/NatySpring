@@ -57,6 +57,13 @@ public class ServiciosContacto_Impl implements ServiciosContacto {
 	
 		return contactoRepo.findById(id);
 	}
+	
+	@Override
+	public ContactoModelo findByIdModelo(int id) {
+		
+		return contactoConverter.converterContacto2ContactoModelo(findById(id));
+	
+	}
 
 	@Override
 	public void borrarContacto(int id) {

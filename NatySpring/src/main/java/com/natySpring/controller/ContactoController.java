@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.natySpring.constans.ConstantesVistas;
+import com.natySpring.entity.Contacto;
 import com.natySpring.model.ContactoModelo;
 import com.natySpring.services.ServiciosContacto;
 
@@ -39,10 +40,20 @@ public class ContactoController {
 	}
 	
 	@GetMapping("/formulariocontacto")
-	public String redireccionarContactoFormulario(Model model) {
-		// le pasamos un modelo porque vamos a trabajar ContactoModelo(), no con la entity correspondiente ( Contacto ) 
+	public String redireccionarContactoFormulario(@RequestParam(name="id", required=false) int id , Model model) {
+		// le pasamos un modelo porque vamos a trabajar ContactoModelo(), no con la entity correspondiente ( Contacto )
+		
 		MI_LOG.info(" -- ENTRA EN EL METODO: redireccionarContactoFormulario()");
-		model.addAttribute("contactoFormulario", new ContactoModelo());
+		
+		ContactoModelo contactoModelo = new ContactoModelo();		
+		
+		if(id != 0) {
+			
+			contactoModelo = servicioContacto.findByIdModelo(id);
+		}
+		
+		model.addAttribute("contactoFormulario", contactoModelo);
+		
 		return ConstantesVistas.VISTA_FORMULARIO_CONTACTO;
 	}
 	
