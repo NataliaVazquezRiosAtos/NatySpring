@@ -1,7 +1,8 @@
 spring:
   datasource:
   # añadimos   ?useSSL=false  -->   para que no nos salte el aviso de MySQL ( porque la conexion no es segura )
-    url: jdbc:mysql://localhost:3306/mydb?useSSL=false
+  # elimino la variable ?useSSL=false , porque sino al añadir la dependencia de spring security casca
+    url: jdbc:mysql://localhost:3306/mydb
     username: root
     password: root
   jpa:
@@ -14,4 +15,3 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-

@@ -65,7 +65,7 @@ public class ContactoController {
 		if(null != servicioContacto.anadirContacto(contactoModelo)) {
 			model.addAttribute("resultado" , 1 );
 		}else {
-			model.addAttribute("resultado" , 1 );	
+			model.addAttribute("resultado" , 0 );	
 		}
 		
 		return "redirect:/contactos/vercontactos";

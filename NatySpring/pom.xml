@@ -57,10 +57,25 @@
 			<artifactId>querydsl-jpa</artifactId>
 		</dependency>
 
+		<!--
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
+		 -->
+		 
+		 <!-- dependencias para spring security -->	
+		 <!-- https://spring.io/projects -->
+		 <!-- https://spring.io/projects/spring-security -->
+		 <!-- https://spring.io/guides -->	
+		 <!-- https://spring.io/guides/gs/securing-web/ -->	
+		 <!-- desde cmd en carpeta del proyecto :  mvn clean install -->	
+		 
+		 <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+         </dependency>		
+		
 	</dependencies>
 
 	<build>
@@ -118,4 +133,3 @@
 	</build>
 
 </project>
-
