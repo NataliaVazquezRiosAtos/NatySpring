@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.natySpring.entity.Usuario;
 
-@Repository
+@Repository("repositorioUsuarios")
 public interface UsuarioRepositorio extends JpaRepository<Usuario , Serializable> {
 
 	public abstract Usuario buscarPorUsuario(String nombreUsuario);
