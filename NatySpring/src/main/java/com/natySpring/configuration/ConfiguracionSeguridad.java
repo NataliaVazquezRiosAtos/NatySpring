@@ -50,16 +50,16 @@ public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
 		.formLogin() // formulario de login
 			.loginPage("/login") // pagina de login
 			.loginProcessingUrl("/comprobarlogin") // url que procesa el login
-			
+			// checkLogin en form
 			.usernameParameter("usuarioForm") // parametro nombre del usuario en el formulario
 			.passwordParameter("contrasenaForm") // parametro nombre del contraseña en el formulario
-			.defaultSuccessUrl("logincorrecto") // url a la que se redirige si el login es correcto
+			.defaultSuccessUrl("/logincorrecto") // url a la que se redirige si el login es correcto
 			.permitAll() // permitir a todos
 			
 		.and() // y
 		
 		.logout() //logout
-			.logoutUrl("/cerrarsesion") // url de logout
+			.logoutUrl("/logout") // url de logout
 			.logoutSuccessUrl("/login?logout")  //  url a la que se redirige : ira a /login con parametro ?logout
 			.permitAll(); // permitir a todos		
 	}

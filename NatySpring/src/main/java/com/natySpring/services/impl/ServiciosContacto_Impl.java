@@ -6,8 +6,6 @@ import com.natySpring.repository.ContactoRepositorio;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -18,7 +16,7 @@ import com.natySpring.services.ServiciosContacto;
 
 @Service("servicioComtactoImpl")
 public class ServiciosContacto_Impl implements ServiciosContacto {
-	private static final Log LOG = LogFactory.getLog(ServiciosContacto_Impl.class);
+
 	// añadimos el repositorio
 	@Autowired
 	@Qualifier("repositorioContactos")

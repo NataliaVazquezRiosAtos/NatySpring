@@ -29,7 +29,7 @@ public class Usuario {
 	@Column(name="activo" , nullable=false )
 	private boolean activo;
 	
-	@OneToMany(fetch = FetchType.LAZY , mappedBy="usuario")
+	@OneToMany(fetch = FetchType.EAGER , mappedBy="usuario")
 	private Set<RolesUsuario> rolesDelUsuario = new HashSet<RolesUsuario>();	
 	
 	// constructores

@@ -60,13 +60,14 @@
         <!-- th:if="${resultado == 0}"  ->  condicion if mediante spring thymeleaf     -->
         <div th:if="${resultado == 0}" class="alert alert-danger" role="alert">Error al a&ntilde;adir el contacto. Vuelva a intentarlo.</div>        
 		
+		<!--  '?'  -> para pasar una variable por get     -->
 		<a href="#" th:href="@{/contactos/formulariocontacto?id=0}">	
 			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> A&ntilde;adir contacto</button>
-		</a>
-		<!--  '?'  -> para pasar una variable por get     -->
-		<a href="#" th:href="@{/login?logout}">		
+		</a>		
+		
+		<form th:action="@{/logout}" method="POST">		
 			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Cerrar sesi&oacute;n</button>
-		</a>
+		</form>
 		
 	</div>
 

@@ -66,7 +66,7 @@ public class ServiciosUsuario_Impl implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario usu = repoUsu.buscarPorUsuario(username);
+		Usuario usu = repoUsu.findByNombreUsu(username);
 		//construirAutentificaciones(usu.);
 		List<GrantedAuthority> auto = construirAutentificaciones(usu.getRolesDelUsuario());
 		return contruirUsuario(usu , auto);

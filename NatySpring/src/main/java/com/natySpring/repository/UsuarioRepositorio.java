@@ -10,6 +10,7 @@ import com.natySpring.entity.Usuario;
 @Repository("repositorioUsuarios")
 public interface UsuarioRepositorio extends JpaRepository<Usuario , Serializable> {
 
-	public abstract Usuario buscarPorUsuario(String nombreUsuario);
+	// obligatoriamente  en  findBy : findByNombreDelAtributoDeLaEntidad
+	public abstract Usuario findByNombreUsu(String nombreUsuario);
 	
 }

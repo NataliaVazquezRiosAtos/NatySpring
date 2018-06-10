@@ -26,7 +26,7 @@ public class RolesUsuario {
 	// nullable=false --> que no pueda tener un  valor null
 	private Integer idRol;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "nombreUsu" , nullable=false)
 	private Usuario usuario;
 	

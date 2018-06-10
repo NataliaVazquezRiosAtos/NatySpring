@@ -17,20 +17,40 @@
   <body>
 
     <div class="container">
+    
+      <!-- th:action="@{/comprobarlogin}" 	-> se coge de ConfiguracionSeguridad .loginProcessingUrl("/comprobarlogin") -->
 
-      <form class="form-signin" action="#" th:action="@{/checkLogin}" th:object="${credencialesFormulario}" method="post">
+      <form class="form-signin" th:action="@{/comprobarlogin}" method="POST">
+      
+      
+      <!-- 		PARAMETRO OCULTO QUE ES PARA LA CONFIGURACION QUE ES EL CSRF , 
+      			QUE SIEMPRE ENVIARA UN TOQUEN PARA EVITAR LAS VULNERABILIDADES
+      			WEB CONOCIDAS.	
+      			
+      			parameterNombreUsu -> parameterNombreDelIdDeLaEntidad	       	-->
+      			
+      	<input type="hidden" name="${_csrf.parameterNombreUsu}" value="${_csrf.token}" > </input>     			
+      			
         <h2 class="form-signin-heading">Login</h2>
-        <label for="inputEmail" class="sr-only">Usuario</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Nombre usuario" th:field="*{nombreUsuario}"/>
-        <label for="inputPassword" class="sr-only">Contrase&ntilde;a</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" th:field="*{passUsuario}"/>
+        
+        <!-- id -> se coge de ConfiguracionSeguridad .usernameParameter("usuarioForm") -->
+        <label for="usuarioForm" class="sr-only">Usuario</label>
+        <input type="text" class="form-control" placeholder="Nombre usuario" id="usuarioForm" name="usuarioForm"/>
+        
+        <!-- id -> se coge de ConfiguracionSeguridad .passwordParameter("contrasenaForm") -->
+        <label for="contrasenaForm" class="sr-only">Contrase&ntilde;a</label>
+        <input type="password" class="form-control" placeholder="Contraseña" id="contrasenaForm" name="contrasenaForm" />
+        
         <!-- th:if="${error != null}"  ->  condicion if mediante spring thymeleaf     -->
         <div th:if="${error != null}" class="alert alert-danger" role="alert">Usuario o contrase&ntilde;a incorrectas.</div>
+        
         <!-- th:if="${logout != null}"  ->  condicion if mediante spring thymeleaf     -->
         <div th:if="${logout != null}" class="alert alert-info" role="alert">Logout correcto.</div>
+        
         <button class="btn btn-lg btn-primary btn-block" type="submit">
         	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Entrar
         </button>
+        
       </form>
 
     </div> <!-- /container -->
