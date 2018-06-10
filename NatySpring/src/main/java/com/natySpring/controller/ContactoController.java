@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -78,9 +80,12 @@ public class ContactoController {
 	@GetMapping("/vercontactos")
 	public ModelAndView verContactos() {
 		
-		ModelAndView mav = new ModelAndView(ConstantesVistas.VISTA_CONTACTOS);
+		ModelAndView mav = new ModelAndView(ConstantesVistas.VISTA_CONTACTOS);		
 		mav.addObject("miscontactos" , servicioContacto.listarContactos());
 		
+		// para mostrar el nombre de usuario en la pantalla de la vista de contactos ( en el saludo )
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		mav.addObject("nombreUsuarioAutentificado" , user.getUsername());
 		return mav;
 	}
 	
