@@ -61,7 +61,7 @@ public class ContactoController {
 		return ConstantesVistas.VISTA_FORMULARIO_CONTACTO;
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")	
+	@PreAuthorize("hasRole('ROL_USER')")	
 	@PostMapping("/anadircontacto")
 	public String anadircontacto(@ModelAttribute(name="contactoFormulario") ContactoModelo contactoModelo , Model model) {
 		
